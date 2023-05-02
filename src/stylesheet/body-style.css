@@ -1,0 +1,29 @@
+/*Scrollbar*/
+*{
+    overflow-y: visible;
+}
+/* Breite der Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Hintergrundfarbe der Scrollbar */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Farbe des Fortschrittsbalkens */
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+/* Hover-Effekt der Scrollbar */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.body {
+    height: 180vh;
+}
+
