@@ -1,15 +1,10 @@
-/*Scrollbar*/
-*{
-    overflow-y: visible;
-}
-/* Breite der Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 /* Hintergrundfarbe der Scrollbar */
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+    background-color: transparent;
 }
 
 /* Farbe des Fortschrittsbalkens */
@@ -24,6 +19,122 @@
 }
 
 .body {
-    height: 180vh;
+    height: 480vh;
 }
 
+main {
+    margin-top: 20vh;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 480vh;
+    background: #fff;
+}
+
+#products ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#products li {
+    border: 1px solid #ddd;
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#products li img {
+    width: 100%;
+}
+
+@media (min-width: 400px) {
+    #products li {
+        flex-basis: calc(30% - 20px);
+    }
+}
+
+.into-cart-icon {
+    display: none;
+}
+
+.into-cart {
+    font-size: smaller;
+    background-color: #333;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.products li h3 {
+    margin: 0;
+}
+
+.products li p {
+    margin: 0;
+}
+
+.products li button {
+    margin-top: 1em;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.product {
+    height: 250px;
+    width: 33.33%;
+    float: left;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.product img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.product h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.product p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 500px) {
+    .into-cart {
+        display: none;
+    }
+
+    .into-cart-icon {
+        display: flex;
+        width: 100px;
+        background-color: #333;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 10px;
+        padding: 10px;
+        transition: background-color 0.2s ease;
+    }
+    .into-cart-icon:hover {
+        background-color: #3333bb;
+
+    }
+}

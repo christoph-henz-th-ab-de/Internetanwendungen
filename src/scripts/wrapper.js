@@ -28,7 +28,3 @@ iconClose.addEventListener('click', () => {
     wrapper.classList.remove('active-popup');
     //body.style.overflowY = 'visible';
 })
-
-btnPopup.addEventListener('click', () => {
-    account_drp_dwn.classList.add('active-popup');
-});

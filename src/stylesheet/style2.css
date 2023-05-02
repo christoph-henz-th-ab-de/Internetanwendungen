@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-.navbar {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,8 +17,8 @@
   transition: top 0.3s ease-in-out;
 }
 
-.navbar .hidden {
-  top: -100px;
+header .hidden {
+  top: -10%;
 }
 
 .logo {
