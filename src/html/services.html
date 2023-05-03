@@ -7,9 +7,10 @@
   <title>HealthcareVision</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../stylesheet/style2.css">
+  <link rel="stylesheet" href="../stylesheet/frame-style.css">
   <link rel="stylesheet" href="../stylesheet/login.css">
   <link rel="stylesheet" href="../stylesheet/body-style.css">
+  <link rel="shortcut icon" href="/src/images/logo.svg" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -23,12 +24,12 @@
     <nav>
       <ul class="nav__links">
         <li><a href="/src/html/index.html">Products</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">About</a>
+        <li><a href="#" class="mark">Services</a></li>
+        <li><a href="/src/html/about.html">About</a>
         </li>
       </ul>
     </nav>
-    <button class="cta, btn-login" type="submit">Login</button>
+    <div><a class="cart cta" href="/src/html/cart.html"><ion-icon name="cart"></ion-icon></a><button class="cta, btn-login" type="submit">Login</button></div>
     <p class="menu cta">Menu</p>
   </header>
   <div class="overlay">
@@ -36,8 +37,8 @@
     <div class="overlay__content">
       <img src="../images/logo.svg" alt="">
       <a href="/src/html/index.html">Products</a>
-      <a href="#">Services</a>
-      <a href="#">About</a>
+      <a href="#" class="mark">Services</a>
+      <a href="/src/html/about.html">About</a>
       <div class="submenu">
       <button class="mobile-login" type="submit">Login</button>
       <a href="/src/html/cart.html"><ion-icon name="cart"></ion-icon></a>

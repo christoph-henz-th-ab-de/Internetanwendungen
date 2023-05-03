@@ -1,78 +1,93 @@
 /* allgemeine Stile für die Tabelle */
-.cart{
-    height: 180vh;
+.cart {
+  height: 180vh;
 }
+
 table {
-    border-collapse: collapse;
-    width: 80%;
-    margin: 20vh auto;
-  }
-  
-  th,
-  td {
-    text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  /* Stile für den Header */
+  border-collapse: collapse;
+  width: 80%;
+  margin: 20vh auto;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Stile für den Header */
+.cart-header {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Stile für den Gesamtbetrag */
+.cart-total {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.cart-total span {
+  font-weight: bold;
+}
+
+/* Farben */
+body {
+  background-color: #f6f6f6;
+  color: #333;
+}
+
+table {
+  background-color: #fff;
+  height: auto;
+}
+
+th {
+  background-color: #ddd;
+}
+
+.btn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3e8e41;
+}
+
+/* Mobilgeräte */
+@media only screen and (max-width: 600px) {
   .cart-header {
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 10px;
+    font-size: 18px;
   }
-  
-  /* Stile für den Gesamtbetrag */
-  .cart-total {
-    margin-top: 10px;
-    text-align: right;
-  }
-  
-  .cart-total span {
-    font-weight: bold;
-  }
-  
-  /* Farben */
-  body {
-    background-color: #f6f6f6;
-    color: #333;
-  }
-  
-  table {
-    background-color: #fff;
-  }
-  
-  th {
-    background-color: #ddd;
-  }
-  
+
   .btn {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
+    padding: 8px 16px;
   }
-  
-  .btn:hover {
-    background-color: #3e8e41;
+}
+
+@media (max-width: 800px) {
+  body {
+    height: 20vh;
   }
-  
-  /* Mobilgeräte */
-  @media only screen and (max-width: 600px) {
-    table {
-      margin-top: 5vh;
-    }
-    .cart-header {
-      font-size: 18px;
-    }
-    .btn {
-      padding: 8px 16px;
-    }
+
+  table {
+    margin-top: 20vh;
   }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
+}

@@ -28,16 +28,16 @@ header .hidden {
 .logo img {
   width: 70px;
 }
-
-.nav__links a,
 .cta,
-.overlay__content a {
+a {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #edf0f1;
   text-decoration: none;
 }
-
+.mark {
+  color: #3333bb;
+}
 .nav__links {
   list-style: none;
   display: flex;
@@ -183,7 +183,8 @@ header .hidden {
 @media only screen and (max-width: 800px) {
 
   .nav__links,
-  .btn-login {
+  .btn-login,
+  .cart {
     display: none;
   }
   

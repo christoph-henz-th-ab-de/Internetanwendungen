@@ -4,13 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Warenkorb</title>
+  <title>HealthcareVision</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../stylesheet/frame-style.css">
   <link rel="stylesheet" href="../stylesheet/login.css">
   <link rel="stylesheet" href="../stylesheet/body-style.css">
-  <link rel="stylesheet" href="../stylesheet/cart.css">
   <link rel="shortcut icon" href="/src/images/logo.svg" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
 
@@ -26,11 +25,11 @@
       <ul class="nav__links">
         <li><a href="/src/html/index.html">Products</a></li>
         <li><a href="/src/html/services.html">Services</a></li>
-        <li><a href="/src/html/about.html">About</a>
+        <li><a href="#" class="mark">About</a>
         </li>
       </ul>
     </nav>
-    <div><a class="cart cta" href="#"><ion-icon name="cart"></ion-icon></a><button class="cta, btn-login" type="submit">Login</button></div>
+    <div><a class="cart cta" href="/src/html/cart.html"><ion-icon name="cart"></ion-icon></a><button class="cta, btn-login" type="submit">Login</button></div>
     <p class="menu cta">Menu</p>
   </header>
   <div class="overlay">
@@ -39,12 +38,10 @@
       <img src="../images/logo.svg" alt="">
       <a href="/src/html/index.html">Products</a>
       <a href="/src/html/services.html">Services</a>
-      <a href="/src/html/about.html">About</a>
+      <a href="#" class="mark">About</a>
       <div class="submenu">
-        <button class="mobile-login" type="submit">Login</button>
-        <a href="#">
-          <ion-icon name="cart"></ion-icon>
-        </a>
+      <button class="mobile-login" type="submit">Login</button>
+      <a href="/src/html/cart.html"><ion-icon name="cart"></ion-icon></a>
       </div>
     </div>
   </div>
@@ -78,7 +75,7 @@
           </div>
         </form>
       </div>
-
+  
       <div class="form-box register">
         <h2>Registrieren</h2>
         <form action="/register" method="POST">
@@ -129,108 +126,12 @@
       </div>
     </div>
   </section>
-  <section class="cart-section">
-    <h1>Produkte im Warenkorb</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Produkt</th>
-          <th>Anzahl</th>
-          <th>Aktionen</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Hier werden die Produkte im Warenkorb dynamisch eingefügt -->
-      </tbody>
-    </table>
-    <script>
-      // Hier wird der JavaScript-Code zum Einfügen der Produkte im Warenkorb geschrieben
-      const product_list = ["Desinfektion", "Pflaster", "Verbände", "Kompressen", "Scheren", "Pinzetten", "Masken", "Handschuhe", "Schürzen", "Schutzbrillen", "Haarnetze", "Infusionsständer", "Beutel", "Kanülen", "Sauerstoffmasken", "Sauerstoffflaschen", "Katheter"];
-  
-      // Funktion, um die Produkte im Warenkorb in der Tabelle anzuzeigen
-      function displayProductsInCart() {
-        const tableBody = document.querySelector('tbody');
-  
-        product_list.forEach(product => {
-          const quantity = localStorage.getItem(product);
-  
-          if (quantity > 0) {
-            const row = document.createElement('tr');
-  
-            const productName = document.createElement('td');
-            productName.textContent = product;
-            row.appendChild(productName);
-  
-            const productQuantity = document.createElement('td');
-            const inputWrapper = document.createElement('div');
-            inputWrapper.classList.add('quantity-input-wrapper');
-            const minusBtn = document.createElement('button');
-            minusBtn.textContent = '-';
-            minusBtn.classList.add('quantity-btn');
-            const quantityInput = document.createElement('input');
-            quantityInput.type = 'number';
-            quantityInput.value = quantity;
-            quantityInput.classList.add('quantity-input');
-            const plusBtn = document.createElement('button');
-            plusBtn.textContent = '+';
-            plusBtn.classList.add('quantity-btn');
-            inputWrapper.appendChild(minusBtn);
-            inputWrapper.appendChild(quantityInput);
-            inputWrapper.appendChild(plusBtn);
-            productQuantity.appendChild(inputWrapper);
-            row.appendChild(productQuantity);
-  
-            const actions = document.createElement('td');
-            const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'Löschen';
-            deleteBtn.classList.add('delete-btn');
-            actions.appendChild(deleteBtn);
-            row.appendChild(actions);
-  
-            tableBody.appendChild(row);
-  
-            // Event listener für die Buttons
-            minusBtn.addEventListener('click', () => {
-              if (quantityInput.value > 0) {
-                quantityInput.value--;
-                localStorage.setItem(product, quantityInput.value);
-              }
-            });
-  
-            plusBtn.addEventListener('click', () => {
-              quantityInput.value++;
-              localStorage.setItem(product, quantityInput.value);
-            });
-  
-            // Event listener für das Eingabefeld
-            quantityInput.addEventListener('change', () => {
-              const newQuantity = parseInt(quantityInput.value);
-              if (newQuantity >= 0) {
-                localStorage.setItem(product, newQuantity);
-              } else {
-                quantityInput.value = quantity;
-              }
-            });
-  
-            // Event listener für den Löschen-Button
-            deleteBtn.addEventListener('click', () => {
-              localStorage.setItem(product, 0);
-              row.remove();
-            });
-          }
-        });
-      }
-  
-      // Aufruf der Funktion beim Laden der Seite
-      displayProductsInCart();
-      
-    </script>
-  </section>    
+  <section id="services">
+    About
+  </section>
   <footer><a href="">&copy; HealthcareVision</a></footer>
   <script type="text/javascript" src="../scripts/mobile.js"></script>
   <script type="text/javascript" src="../scripts/navbar.js"></script>
   <script type="text/javascript" src="../scripts/wrapper.js"></script>
   <script type="text/javascript" src="../scripts/cart.js"></script>
 </body>
-
-</html>
