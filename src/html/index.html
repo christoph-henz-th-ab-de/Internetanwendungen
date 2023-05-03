@@ -1,25 +1,130 @@
 <!DOCTYPE html>
-<html lang="den">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medizinprodukte Onlineshop</title>
-  <link rel="stylesheet" href="/src/stylesheet/style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>HealthcareVision</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../stylesheet/style2.css">
+  <link rel="stylesheet" href="../stylesheet/login.css">
+  <link rel="stylesheet" href="../stylesheet/body-style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </head>
 
 <body>
-  <header>
+  <header class="navbar">
+    <a class="logo" href="/"><img src="../images/logo.svg" alt="logo"></a>
     <nav>
-      <ul>
-        <li><a href="#">Startseite</a></li>
-        <li><a href="#">Produkte</a></li>
-        <li><a href="#">Warenkorb</a></li>
-        <li><a href="#">Anmelden</a></li>
+      <ul class="nav__links">
+        <li><a href="#">Products</a></li>
+        <li><a href="/src/html/services.html">Services</a></li>
+        <li><a href="#">About</a>
+        </li>
       </ul>
     </nav>
+    <div><a class="cta" href="/src/html/cart.html"><ion-icon name="cart"></ion-icon></a><button class="cta, btn-login" type="submit">Login</button></div>
+    <p class="menu cta">Menu</p>
   </header>
-
+  <div class="overlay">
+    <a class="close">&times;</a>
+    <div class="overlay__content">
+      <img src="../images/logo.svg" alt="">
+      <a href="#">Products</a>
+      <a href="/src/html/services.html">Services</a>
+      <a href="#">About</a>
+      <div class="submenu">
+      <button class="mobile-login" type="submit">Login</button>
+      <a href="/src/html/cart.html"><ion-icon name="cart"></ion-icon></a>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="wrapper">
+      <span class="icon-close">
+        <ion-icon name="close"></ion-icon>
+      </span>
+      <div class="form-box login">
+        <h2>Login</h2>
+        <span class="error_msg">
+        </span>
+        <form action="/login" method="POST">
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="mail"></ion-icon>
+            </span>
+            <input type="email" class="email" name="email" required>
+            <label for="email">Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="lock-closed"></ion-icon>
+            </span>
+            <input type="password" class="password" name="password" required>
+            <label for="password">Passwort</label>
+          </div>
+          <button type="submit" class="btn">Login</button>
+          <div class="login-register">
+            <p>Noch kein Account? <a href="#" class="register-link">Registrieren</a></p>
+          </div>
+        </form>
+      </div>
+  
+      <div class="form-box register">
+        <h2>Registrieren</h2>
+        <form action="/register" method="POST">
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="person"></ion-icon>
+            </span>
+            <input type="text" id="fname" name="fname" required>
+            <label for="fname">Vorname</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="person"></ion-icon>
+            </span>
+            <input type="text" id="lname" name="lname" required>
+            <label for="lname">Nachname</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="mail"></ion-icon>
+            </span>
+            <input type="email" id="email" name="email" required>
+            <label for="email">Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="lock-closed"></ion-icon>
+            </span>
+            <input type="password" id="password" name="password" required>
+            <label for="password">Passwort</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="lock-closed"></ion-icon>
+            </span>
+            <input type="password" id="cpassword" name="cpassword" required>
+            <label for="password">Passwort wiederholen</label>
+          </div>
+          <div class="remember-forgot">
+            <label><input type="checkbox" required>
+              Den Nutzungsbedingungen zustimmen</label>
+          </div>
+          <button type="submit" class="btn">Registrieren</button>
+          <div class="login-register">
+            <p>Bereits ein Account?<a href="#" class="login-link">Login</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
   <main>
     <h1>Willkommen bei Healthcare Vision</h1>
     <p>Hier finden Sie alles, was Sie für Ihre medizinische Praxis benötigen.</p>
@@ -28,87 +133,92 @@
       <h2>Unsere Produkte</h2>
       <ul>
         <li>
-          <img src="product1.jpg" alt="Produkt 1">
-          <h3>Produkt 1</h3>
+          <img src="/src/images/sterillium_haendedesinfektion-alkoholisch.gif" alt="Desinfektionsmittel">
+          <h3>Desinfektionsmittel (Fläche, Hände, alkoholfrei)</h3>
           <p>Beschreibung des Produkts 1.</p>
-          <button>In den Warenkorb legen</button>
+          <div onclick="increment_cart(1);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
         </li>
         <li>
-          <img src="product2.jpg" alt="Produkt 2">
-          <h3>Produkt 2</h3>
+          <img src="/src/images/Pflaster.jpg" alt="Produkt 2">
+          <h3>Pflaster</h3>
           <p>Beschreibung des Produkts 2.</p>
-          <button>In den Warenkorb legen</button>
+          <div onclick="increment_cart(2);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
         </li>
         <li>
           <img src="product3.jpg" alt="Produkt 3">
           <h3>Produkt 3</h3>
           <p>Beschreibung des Produkts 3.</p>
-          <button>In den Warenkorb legen</button>
+          <div onclick="increment_cart(3);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
         </li>
         <li>
           <img src="product3.jpg" alt="Produkt 3">
           <h3>Produkt 3</h3>
           <p>Beschreibung des Produkts 3.</p>
-          <button>In den Warenkorb legen</button>
+          <div onclick="increment_cart(4);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
         </li>
         <li>
           <img src="product3.jpg" alt="Produkt 3">
           <h3>Produkt 3</h3>
           <p>Beschreibung des Produkts 3.</p>
-          <button>In den Warenkorb legen</button>
+          <div onclick="increment_cart(5);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
         </li>
         <li>
           <img src="product3.jpg" alt="Produkt 3">
           <h3>Produkt 3</h3>
           <p>Beschreibung des Produkts 3.</p>
-          <button>In den Warenkorb legen</button>
+          <div onclick="increment_cart(6);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
         </li>
         <li>
-            <img src="product3.jpg" alt="Produkt 3">
-            <h3>Produkt 3</h3>
-            <p>Beschreibung des Produkts 3.</p>
-            <button>In den Warenkorb legen</button>
-          </li>
-          <li>
-            <img src="product3.jpg" alt="Produkt 3">
-            <h3>Produkt 3</h3>
-            <p>Beschreibung des Produkts 3.</p>
-            <button>In den Warenkorb legen</button>
-          </li>
-          <li>
-            <img src="product3.jpg" alt="Produkt 3">
-            <h3>Produkt 3</h3>
-            <p>Beschreibung des Produkts 3.</p>
-            <button>In den Warenkorb legen</button>
-          </li>
-          <li>
-            <img src="product3.jpg" alt="Produkt 3">
-            <h3>Produkt 3</h3>
-            <p>Beschreibung des Produkts 3.</p>
-            <button>In den Warenkorb legen</button>
-          </li>
-          <li>
-            <img src="product3.jpg" alt="Produkt 3">
-            <h3>Produkt 3</h3>
-            <p>Beschreibung des Produkts 3.</p>
-            <button>In den Warenkorb legen</button>
-          </li>
-          <li>
-            <img src="product3.jpg" alt="Produkt 3">
-            <h3>Produkt 3</h3>
-            <p>Beschreibung des Produkts 3.</p>
-            <button>In den Warenkorb legen</button>
-          </li>
+          <img src="product3.jpg" alt="Produkt 3">
+          <h3>Produkt 3</h3>
+          <p>Beschreibung des Produkts 3.</p>
+          <div onclick="increment_cart(7);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
+        </li>
+        <li>
+          <img src="product3.jpg" alt="Produkt 3">
+          <h3>Produkt 3</h3>
+          <p>Beschreibung des Produkts 3.</p>
+          <div onclick="increment_cart(8);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
+        </li>
+        <li>
+          <img src="product3.jpg" alt="Produkt 3">
+          <h3>Produkt 3</h3>
+          <p>Beschreibung des Produkts 3.</p>
+          <div onclick="increment_cart(9);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
+        </li>
+        <li>
+          <img src="product3.jpg" alt="Produkt 3">
+          <h3>Produkt 3</h3>
+          <p>Beschreibung des Produkts 3.</p>
+          <div onclick="increment_cart(10);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
+        </li>
+        <li>
+          <img src="product3.jpg" alt="Produkt 3">
+          <h3>Produkt 3</h3>
+          <p>Beschreibung des Produkts 3.</p>
+          <div onclick="increment_cart(11);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
+        </li>
+        <li>
+          <img src="product3.jpg" alt="Produkt 3">
+          <h3>Produkt 3</h3>
+          <p>Beschreibung des Produkts 3.</p>
+          <div onclick="increment_cart(12);"><button class="into-cart">In den Warenkorb legen</button><ion-icon class="into-cart-icon" name="cart-outline"></ion-icon></div>
+        </li>
 
       </ul>
     </section>
   </main>
-
-  <footer>
-    <p>&copy; Healthcare Vision</p>
-  </footer>
-
-  <script src="script.js"></script>
+  Desinfektionszeug (Fläche, Hände, alkoholfrei)
+Verbandsmaterial (Pflaster, Verbände, Kompressen)
+Scheren, Pinzetten
+Schutzausrüstung (Masken, Handschuhe, Schürzen, Schutzbrillen, Haarnetze)
+Infusionsmaterial (Ständer, Beutel)
+Labormaterial (Kanülen,)
+Sauerstoff (Masken, Behälter)
+Inkontinenzmaterial (Katheter, Bettpfannen, Urinflaschen)
+  <footer><a href="">&copy; HealthcareVision</a></footer>
+  <script type="text/javascript" src="../scripts/mobile.js"></script>
+  <script type="text/javascript" src="../scripts/navbar.js"></script>
+  <script type="text/javascript" src="../scripts/wrapper.js"></script>
+  <script type="text/javascript" src="../scripts/cart.js"></script>
 </body>
-
-</html>
