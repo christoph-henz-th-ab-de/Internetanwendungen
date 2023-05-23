@@ -30,7 +30,8 @@
         </li>
       </ul>
     </nav>
-    <div><a class="cart cta" href="#"><ion-icon name="cart"></ion-icon></a><button class="cta, btn-login" type="submit">Login</button></div>
+    <div><a class="cart cta" href="#"><ion-icon name="cart"></ion-icon></a><button class="cta, btn-login"
+        type="submit">Login</button></div>
     <p class="menu cta">Menu</p>
   </header>
   <div class="overlay">
@@ -146,21 +147,25 @@
     <script>
       // Hier wird der JavaScript-Code zum Einfügen der Produkte im Warenkorb geschrieben
       const product_list = ["Desinfektion", "Pflaster", "Verbände", "Kompressen", "Scheren", "Pinzetten", "Masken", "Handschuhe", "Schürzen", "Schutzbrillen", "Haarnetze", "Infusionsständer", "Beutel", "Kanülen", "Sauerstoffmasken", "Sauerstoffflaschen", "Katheter"];
-  
+
       // Funktion, um die Produkte im Warenkorb in der Tabelle anzuzeigen
       function displayProductsInCart() {
         const tableBody = document.querySelector('tbody');
-  
+        //const totalAmount = document.getElementById('total-amount');
+        const totalAmount = localStorage.getItem("Total_Amount");
+
+        let cartTotal = 0;
+
         product_list.forEach(product => {
           const quantity = localStorage.getItem(product);
-  
+
           if (quantity > 0) {
             const row = document.createElement('tr');
-  
+
             const productName = document.createElement('td');
             productName.textContent = product;
             row.appendChild(productName);
-  
+
             const productQuantity = document.createElement('td');
             const inputWrapper = document.createElement('div');
             inputWrapper.classList.add('quantity-input-wrapper');
@@ -179,53 +184,82 @@
             inputWrapper.appendChild(plusBtn);
             productQuantity.appendChild(inputWrapper);
             row.appendChild(productQuantity);
-  
+
             const actions = document.createElement('td');
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Löschen';
             deleteBtn.classList.add('delete-btn');
             actions.appendChild(deleteBtn);
             row.appendChild(actions);
-  
+
             tableBody.appendChild(row);
-  
+
             // Event listener für die Buttons
             minusBtn.addEventListener('click', () => {
               if (quantityInput.value > 0) {
                 quantityInput.value--;
                 localStorage.setItem(product, quantityInput.value);
+                updateTotalAmount();
               }
             });
-  
+
             plusBtn.addEventListener('click', () => {
               quantityInput.value++;
               localStorage.setItem(product, quantityInput.value);
+              updateTotalAmount();
             });
-  
+
             // Event listener für das Eingabefeld
             quantityInput.addEventListener('change', () => {
               const newQuantity = parseInt(quantityInput.value);
               if (newQuantity >= 0) {
                 localStorage.setItem(product, newQuantity);
+                updateTotalAmount();
               } else {
                 quantityInput.value = quantity;
               }
             });
-  
+
             // Event listener für den Löschen-Button
             deleteBtn.addEventListener('click', () => {
+
               localStorage.setItem(product, 0);
               row.remove();
+              updateTotalAmount();
             });
+
+            cartTotal += parseInt(quantity);
           }
         });
+
+        totalAmount.textContent = cartTotal;
       }
-  
-      // Aufruf der Funktion beim Laden der Seite
+
+      // Funktion zum Aktualisieren des Gesamtmenge-Zählers
+      function updateTotalAmount() {
+        //const totalAmount = document.getElementById('total-amount');
+        const totalAmount = localStorage.getItem("Total_Amount");
+        let cartTotal;
+
+        product_list.forEach(product => {
+          const quantity = localStorage.getItem(product);
+          if (!isNaN(quantity)) {
+            cartTotal += parseInt(quantity);
+          }
+        });
+
+        totalAmount.textContent = cartTotal;
+        localStorage.setItem("Total_amount", cartTotal);
+      }
+
+      // Aufruf der Funktionen beim Laden der Seite
       displayProductsInCart();
-      
+      updateTotalAmount();
+
+      setInterval(updateTotalAmount, 2000);
+
     </script>
-  </section>    
+  </section>
   <footer><a href="">&copy; HealthcareVision</a></footer>
   <script type="text/javascript" src="../scripts/mobile.js"></script>
   <script type="text/javascript" src="../scripts/navbar.js"></script>
